@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Goods {
+public class Supplier {
     private String name;
-    private int price;
+    private String phoneNumber;
+    private Goods goods;
 }
