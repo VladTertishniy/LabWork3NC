@@ -13,4 +13,5 @@ public class Supplier {
     private String name;
     private String phoneNumber;
     private Goods goods;
+    private SupplierType supplierType;
 }

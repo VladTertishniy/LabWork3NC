@@ -10,4 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Consumer {
+    private String name;
+    private String phoneNumber;
+    private Goods goods;
+    private ConsumerType consumerType;
 }
