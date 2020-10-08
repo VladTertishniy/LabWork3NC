@@ -1,0 +1,13 @@
+package edu.sumdu.labwork3.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/test")
+public class GoodsController {
+    @RequestMapping()
+    public String showAllCategories() {
+        return "goods";
+    }
+}

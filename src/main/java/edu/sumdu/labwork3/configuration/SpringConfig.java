@@ -1,4 +1,4 @@
-package edu.sumdu.labwork3;
+package edu.sumdu.labwork3.configuration;
 
 import org.springframework.context.annotation.Configuration;
 
