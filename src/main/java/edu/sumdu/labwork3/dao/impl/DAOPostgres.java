@@ -4,6 +4,7 @@ import edu.sumdu.labwork3.dao.DAO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 @AllArgsConstructor
 @Getter
 @Setter
+@Repository
 public class DAOPostgres extends DAO {
 
     private final DataSource dataSource;
@@ -33,8 +35,12 @@ public class DAOPostgres extends DAO {
     public void disconnect() {
         try {
             connection.close();
-            resultSet.close();
-            statement.close();
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
             System.out.println("Disconnected!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());

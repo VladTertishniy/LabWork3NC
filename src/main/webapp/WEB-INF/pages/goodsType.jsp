@@ -4,6 +4,6 @@
     <title>Title</title>
     </head>
     <body>
-    <p>Goods</p>
+    <p>GoodsType</p>
     </body>
     </html>

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "edu.sumdu.labwork3.controller")
+@ComponentScan(basePackages = "edu.sumdu.labwork3")
 public class WebConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver getViewResolver() {
