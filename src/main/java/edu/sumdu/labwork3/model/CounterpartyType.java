@@ -1,6 +1,6 @@
 package edu.sumdu.labwork3.model;
 
-public enum ConsumerType {
+public enum CounterpartyType {
     RETAIL,
     WHOLESALE
 }

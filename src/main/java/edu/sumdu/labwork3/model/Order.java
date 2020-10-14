@@ -5,15 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Consumer {
-    private User user;
-    private String firstname;
-    private String lastname;
-    private String phoneNumber;
-    private String email;
-    private String counterpartyType;
+public class Order {
+    private int id;
+    private int number;
+    private Consumer consumer;
+    private LocalDateTime orderDate;
 }

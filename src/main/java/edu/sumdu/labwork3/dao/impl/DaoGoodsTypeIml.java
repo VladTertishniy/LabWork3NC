@@ -1,15 +1,10 @@
 package edu.sumdu.labwork3.dao.impl;
 
-import edu.sumdu.labwork3.dao.DAO;
 import edu.sumdu.labwork3.dao.DaoGoodsType;
 import edu.sumdu.labwork3.model.GoodsType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,29 +21,36 @@ public class DaoGoodsTypeIml implements DaoGoodsType {
 
     @Override
     public void insert(GoodsType goodsType) {
-        String query = "INSERT INTO goodsType (title, parent) VALUES (?, ?)";
-        Optional<GoodsType> parent = Optional.ofNullable(goodsType.getParentGoodsType());
-        jdbcTemplate.update(query, goodsType.getName(), parent.isPresent() ? parent.get().getId() : null);
+        String query = "INSERT INTO goods_Type (name, parent_id, vendorCode) VALUES (?, ?, ?)";
+        Optional<Integer> parent_id = Optional.ofNullable(goodsType.getParent_id());
+        jdbcTemplate.update(query, goodsType.getName(), parent_id.isPresent() ? parent_id : null, goodsType.getVendorCode());
     }
 
     @Override
     public void update(GoodsType goodsType) {
-        String query = "UPDATE goodsType SET title = ?, parent = ? WHERE id = ?";
-        Optional<GoodsType> parent = Optional.ofNullable(goodsType.getParentGoodsType());
-        jdbcTemplate.update(query, goodsType.getName(), parent.isPresent() ? parent.get().getId() : null, goodsType.getId());
+        String query = "UPDATE goods_Type SET name = ?, parent_id = ?, vendorCode = ? WHERE id = ?";
+        Optional<Integer> parent_id = Optional.ofNullable(goodsType.getParent_id());
+        jdbcTemplate.update(query, goodsType.getName(), parent_id.isPresent() ? parent_id : null, goodsType.getVendorCode(), goodsType.getId());
     }
 
     @Override
     public void delete(GoodsType goodsType) {
-        String query = "DELETE FROM goodsType WHERE id = ? ";
+        String query = "DELETE FROM goods_Type WHERE id = ? ";
         jdbcTemplate.update(query, goodsType.getId());
     }
 
     @Override
     public List<GoodsType> findAll() {
         goodsTypes = new ArrayList<>();
-        String query = "SELECT * FROM goodsType";
+        String query = "SELECT * FROM goods_Type";
+        //todo
         return goodsTypes;
+    }
+
+    @Override
+    public GoodsType findById(int id) {
+        //todo
+        return null;
     }
 
 }

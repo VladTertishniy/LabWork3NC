@@ -7,11 +7,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GoodsType {
-    private String name;
     private int id;
-    private GoodsType parentGoodsType;
+    private Integer parent_id;
+    private String name;
+    private String vendorCode;
 
-   public GoodsType(int id) {
-       this.id = id;
+   public GoodsType(String vendorCode) {
+       this.vendorCode = vendorCode;
    }
 }

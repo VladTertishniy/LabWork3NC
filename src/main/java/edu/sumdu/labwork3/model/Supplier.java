@@ -10,8 +10,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Supplier {
-    private String name;
+    private User user;
+    private String firstname;
+    private String lastname;
     private String phoneNumber;
-    private Goods goods;
-    private SupplierType supplierType;
+    private String email;
+    private String organization;
 }

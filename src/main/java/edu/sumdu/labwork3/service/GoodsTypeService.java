@@ -1,14 +1,13 @@
-package edu.sumdu.labwork3.dao;
-
+package edu.sumdu.labwork3.service;
 
 import edu.sumdu.labwork3.model.GoodsType;
 
 import java.util.List;
 
-public interface DaoGoodsType {
+public interface GoodsTypeService {
     void insert(GoodsType goodsType);
+    List<GoodsType> getAll();
     void update(GoodsType goodsType);
     void delete(GoodsType goodsType);
-    List<GoodsType> findAll();
-    GoodsType findById(int id);
+    GoodsType getById(int id);
 }
