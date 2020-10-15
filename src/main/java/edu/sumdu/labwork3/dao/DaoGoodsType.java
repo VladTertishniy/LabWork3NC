@@ -10,5 +10,5 @@ public interface DaoGoodsType {
     void update(GoodsType goodsType);
     void delete(GoodsType goodsType);
     List<GoodsType> findAll();
-    GoodsType findById(int id);
+    GoodsType getById(int id);
 }

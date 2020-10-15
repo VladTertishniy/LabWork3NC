@@ -22,10 +22,11 @@ public class GoodsTypeController {
 
     @RequestMapping("/create")
     public String createGoodsType() {
-        GoodsType goodsType = new GoodsType(1, null,"Bag", "576");
-        GoodsType goodsType1 = new GoodsType(3, null, "fork", "321");
-        goodsTypeService.update(goodsType1);
-        goodsTypeService.insert(goodsType);
-        return "categories";
+//        GoodsType goodsType = new GoodsType(1, null,"Bag", "576");
+//        GoodsType goodsType1 = new GoodsType(3, null, "fork", "321");
+//        goodsTypeService.update(goodsType1);
+//        goodsTypeService.insert(goodsType);
+//        goodsTypeService.getAll();
+        return "goodsType";
     }
 }

@@ -1,9 +1,7 @@
 package edu.sumdu.labwork3.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import edu.sumdu.labwork3.dao.impl.DaoGoodsTypeIml;
+import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -13,16 +11,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class GoodsTypeMapper implements RowMapper<GoodsType> {
 
     public static final String GOOD_TYPE_ID_ROW_NAME = "id";
     public static final String PARENT_ID_ROW_NAME = "parent_id";
     public static final String NAME_ROW_NAME = "name";
-    public static final String VENDOR_CODE_ROW_NAME = "vendorCode";
+    public static final String VENDOR_CODE_ROW_NAME = "vendorcode";
+    final static Logger logger = Logger.getLogger(GoodsTypeMapper.class);
 
     /**
      * @exception IllegalArgumentException if ResultSet is not valid
@@ -59,7 +54,7 @@ public class GoodsTypeMapper implements RowMapper<GoodsType> {
     private boolean validateResultSet(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
         Set<String> columnNames = new HashSet<>();
-        for (int i = 1; i < metaData.getColumnCount(); i++) {
+        for (int i = 1; i <= metaData.getColumnCount(); i++) {
             columnNames.add(metaData.getColumnName(i));
         }
         return columnNames.containsAll(Arrays.asList(GOOD_TYPE_ID_ROW_NAME, PARENT_ID_ROW_NAME, NAME_ROW_NAME, VENDOR_CODE_ROW_NAME));
