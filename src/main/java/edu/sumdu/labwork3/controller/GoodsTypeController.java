@@ -1,7 +1,7 @@
 package edu.sumdu.labwork3.controller;
 
-import edu.sumdu.labwork3.model.GoodsType;
 import edu.sumdu.labwork3.service.GoodsTypeService;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GoodsTypeController {
 
     private final GoodsTypeService goodsTypeService;
+    final static Logger logger = Logger.getLogger(GoodsTypeService.class);
 
     public GoodsTypeController(GoodsTypeService goodsTypeService) {
         this.goodsTypeService = goodsTypeService;

@@ -38,7 +38,6 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
 
     @Override
     public GoodsType getById(int id) {
-        //todo
         return daoGoodsType.getById(id);
     }
 }

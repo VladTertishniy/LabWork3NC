@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Goods {
     private int id;
     private String name;
-    private int price;
+    private float price;
     private GoodsType goodsType;
     private Supplier supplier;
 }

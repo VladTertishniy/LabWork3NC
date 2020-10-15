@@ -2,7 +2,7 @@ package edu.sumdu.labwork3.dao.impl;
 
 import edu.sumdu.labwork3.dao.DaoGoodsType;
 import edu.sumdu.labwork3.model.GoodsType;
-import edu.sumdu.labwork3.model.GoodsTypeMapper;
+import edu.sumdu.labwork3.mapper.GoodsTypeMapper;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
