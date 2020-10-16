@@ -57,7 +57,10 @@ public class GoodsTypeMapper implements RowMapper<GoodsType> {
         for (int i = 1; i <= metaData.getColumnCount(); i++) {
             columnNames.add(metaData.getColumnName(i));
         }
-        return columnNames.containsAll(Arrays.asList(GOODS_TYPE_ID_ROW_NAME, PARENT_ID_ROW_NAME, NAME_ROW_NAME, VENDOR_CODE_ROW_NAME));
+        return columnNames.containsAll(Arrays.asList(
+                GOODS_TYPE_ID_ROW_NAME,
+                PARENT_ID_ROW_NAME,
+                NAME_ROW_NAME,
+                VENDOR_CODE_ROW_NAME));
     }
-
 }

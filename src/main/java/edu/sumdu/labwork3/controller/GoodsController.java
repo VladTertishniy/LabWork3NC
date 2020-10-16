@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GoodsController {
 
     private final GoodsService goodsService;
-    final static Logger logger = Logger.getLogger(GoodsService.class);
+    final static Logger logger = Logger.getLogger(GoodsController.class);
 
     public GoodsController(GoodsService goodsService) {
         this.goodsService = goodsService;
