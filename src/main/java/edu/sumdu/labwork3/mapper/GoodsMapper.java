@@ -43,28 +43,28 @@ public class GoodsMapper implements RowMapper<Goods> {
         }
         // additional LOGGER.trace("The result set is valid !!! :) "); todo
         User user = new User();
-        user.setUser_id(rs.getInt("user_id"));
-        user.setPassword(rs.getString("user_password"));
-        user.setUsername(rs.getString("user_name"));
+        user.setUser_id(rs.getInt(USER_ID_ROW_NAME));
+        user.setPassword(rs.getString(USER_PASSWORD_ROW_NAME));
+        user.setUsername(rs.getString(USER_NAME_ROW_NAME));
         Supplier supplier = new Supplier();
         supplier.setUser(user);
-        supplier.setEmail(rs.getString("supplier_email"));
-        supplier.setFirstname(rs.getString("supplier_firstname"));
-        supplier.setLastname(rs.getString("supplier_lastname"));
-        supplier.setOrganization(rs.getString("supplier_organization"));
-        supplier.setPhoneNumber(rs.getString("supplier_phoneNumber"));
+        supplier.setEmail(rs.getString(SUPPLIER_EMAIL_ROW_NAME));
+        supplier.setFirstname(rs.getString(SUPPLIER_FIRSTNAME_ROW_NAME));
+        supplier.setLastname(rs.getString(SUPPLIER_LASTNAME_ROW_NAME));
+        supplier.setOrganization(rs.getString(SUPPLIER_ORGANIZATION_ROW_NAME));
+        supplier.setPhoneNumber(rs.getString(SUPPLIER_PHONENUMBER_ROW_NAME));
         GoodsType goodsType = new GoodsType();
-        goodsType.setId(rs.getInt("goodsType_id"));
-        int goodsTypeParenId = rs.getInt("goodsType_parent_id");
+        goodsType.setId(rs.getInt(GOODS_TYPE_ID_ROW_NAME));
+        int goodsTypeParenId = rs.getInt(GOODS_TYPE_PARENT_ID_ROW_NAME);
         goodsType.setParent_id(goodsTypeParenId != 0 ? goodsTypeParenId : null );
         // additional LOGGER.info("Converting 0 -> null parentID data from ResultSet"); todo
-        goodsType.setName(rs.getString("goodsType_name"));
-        goodsType.setVendorCode(rs.getString("goodsType_vendorCode"));
+        goodsType.setName(rs.getString(GOODS_TYPE_NAME_ROW_NAME));
+        goodsType.setVendorCode(rs.getString(GOODS_VENDORCODE_ROW_NAME));
         Goods goods = new Goods();
-        goods.setPrice(rs.getFloat("goods_price"));
+        goods.setPrice(rs.getFloat(GOODS_PRICE_ROW_NAME));
         goods.setGoodsType(goodsType);
-        goods.setId(rs.getInt("goods_id"));
-        goods.setName(rs.getString("goods_name"));
+        goods.setId(rs.getInt(GOODS_ID_ROW_NAME));
+        goods.setName(rs.getString(GOODS_NAME_ROW_NAME));
         goods.setSupplier(supplier);
         return goods;
     }

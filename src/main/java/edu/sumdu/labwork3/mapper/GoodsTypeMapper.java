@@ -30,12 +30,12 @@ public class GoodsTypeMapper implements RowMapper<GoodsType> {
         }
         // additional LOGGER.trace("The result set is valid !!! :) "); todo
         GoodsType goodsType = new GoodsType();
-        goodsType.setVendorCode(rs.getString("vendorCode"));
-        goodsType.setName(rs.getString("name"));
-        int parentID = rs.getInt("parent_id");
+        goodsType.setVendorCode(rs.getString(VENDOR_CODE_ROW_NAME));
+        goodsType.setName(rs.getString(NAME_ROW_NAME));
+        int parentID = rs.getInt(PARENT_ID_ROW_NAME);
         goodsType.setParent_id(parentID != 0 ? parentID : null);
         // additional LOGGER.info("Converting 0 -> null parentID data from ResultSet"); todo
-        goodsType.setId(rs.getInt("id"));
+        goodsType.setId(rs.getInt(GOODS_TYPE_ID_ROW_NAME));
         return goodsType;
     }
 

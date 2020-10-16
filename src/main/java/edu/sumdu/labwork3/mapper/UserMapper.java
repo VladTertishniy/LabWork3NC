@@ -25,9 +25,9 @@ public class UserMapper implements RowMapper<User> {
             throw new IllegalArgumentException();
         }
         User user = new User();
-        user.setUser_id(rs.getInt("id"));
-        user.setUsername(rs.getString("username"));
-        user.setPassword(rs.getString("password"));
+        user.setUser_id(rs.getInt(USER_ID_ROW_NAME));
+        user.setUsername(rs.getString(PASSWORD_ROW_NAME));
+        user.setPassword(rs.getString(USERNAME_NAME));
         return user;
     }
 
@@ -51,6 +51,7 @@ public class UserMapper implements RowMapper<User> {
         return columnNames.containsAll(Arrays.asList(
                 USER_ID_ROW_NAME,
                 PASSWORD_ROW_NAME,
-                USERNAME_NAME));
+                USERNAME_NAME
+        ));
     }
 }
