@@ -57,10 +57,10 @@ public class DaoGoodsImpl implements DaoGoods {
                 "       gt.name goodsType_name,\n" +
                 "       gt.parent_id goodsType_parent_id,\n" +
                 "       gt.vendorCode goodsType_vendorCode\n" +
-                "from \"user\" u\n" +
-                "    left join supplier s on u.id = s.user_id\n" +
-                "    left join goods g on s.user_id = g.supplier_id\n" +
-                "    left join goods_type gt on g.goods_type_id = gt.id";
+                "from goods g\n" +
+                "    left join supplier s on g.supplier_id = s.user_id\n" +
+                "    left join \"user\" u on s.user_id = u.id\n" +
+                "    left join goods_type gt on g.goods_type_id = gt.id\n";
         List<Goods> goodsList = jdbcTemplate.query(query, new GoodsMapper());
         List<Goods> goods = new ArrayList<>(goodsList);
         logger.info(goods.toString());
@@ -86,9 +86,9 @@ public class DaoGoodsImpl implements DaoGoods {
                 "       gt.name goodsType_name,\n" +
                 "       gt.parent_id goodsType_parent_id,\n" +
                 "       gt.vendorCode goodsType_vendorCode\n" +
-                "from \"user\" u\n" +
-                "    left join supplier s on u.id = s.user_id\n" +
-                "    left join goods g on s.user_id = g.supplier_id\n" +
+                "from goods g\n" +
+                "    left join supplier s on g.supplier_id = s.user_id\n" +
+                "    left join \"user\" u on s.user_id = u.id\n" +
                 "    left join goods_type gt on g.goods_type_id = gt.id\n" +
                 "where g.id = ?";
         List<Goods> goodsList = jdbcTemplate.query(query, new GoodsMapper(), id);

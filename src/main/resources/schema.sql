@@ -72,7 +72,7 @@ CREATE TABLE user_role (
 
 -- Order table
 CREATE TABLE "order" (
-                                       id INTEGER NOT NULL UNIQUE,
+                                       id serial NOT NULL UNIQUE,
                                        number INTEGER NOT NULL ,
                                        user_id INTEGER NOT NULL ,
                                        orderDate TIMESTAMP NOT NULL ,
