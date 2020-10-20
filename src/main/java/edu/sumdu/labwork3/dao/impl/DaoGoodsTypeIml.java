@@ -26,20 +26,20 @@ public class DaoGoodsTypeIml implements DaoGoodsType {
     public void insert(GoodsType goodsType) {
         String query = "INSERT INTO goods_Type (name, parent_id, vendorCode) VALUES (?, ?, ?)";
         Optional<Integer> parent_id = Optional.ofNullable(goodsType.getParent_id());
-        jdbcTemplate.update(query, goodsType.getName(), parent_id.isPresent() ? parent_id : null, goodsType.getVendorCode());
+        jdbcTemplate.update(query, goodsType.getName(), parent_id.orElse(null), goodsType.getVendorCode());
     }
 
     @Override
     public void update(GoodsType goodsType) {
         String query = "UPDATE goods_Type SET name = ?, parent_id = ?, vendorCode = ? WHERE id = ?";
         Optional<Integer> parent_id = Optional.ofNullable(goodsType.getParent_id());
-        jdbcTemplate.update(query, goodsType.getName(), parent_id.isPresent() ? parent_id : null, goodsType.getVendorCode(), goodsType.getId());
+        jdbcTemplate.update(query, goodsType.getName(), parent_id.orElse(null), goodsType.getVendorCode(), goodsType.getId());
     }
 
     @Override
-    public void delete(GoodsType goodsType) {
+    public void delete(int id) {
         String query = "DELETE FROM goods_Type WHERE id = ? ";
-        jdbcTemplate.update(query, goodsType.getId());
+        jdbcTemplate.update(query, id);
     }
 
     @Override

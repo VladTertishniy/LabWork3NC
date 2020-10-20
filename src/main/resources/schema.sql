@@ -9,7 +9,7 @@ DROP TABLE "order" CASCADE;
 DROP TABLE basket_of_goods CASCADE;
 
 -- Supplier table
-CREATE TABLE supplier (
+CREATE TABLE IF NOT EXISTS supplier (
                                         user_id INTEGER NOT NULL ,
                                         firstname VARCHAR (100) NOT NULL ,
                                         lastname VARCHAR(100) NOT NULL ,
@@ -20,7 +20,7 @@ CREATE TABLE supplier (
 );
 
 -- Consumer table
-CREATE TABLE consumer (
+CREATE TABLE IF NOT EXISTS consumer (
                                         user_id INTEGER NOT NULL ,
                                         firstname VARCHAR(100) NOT NULL ,
                                         lastname VARCHAR(100) NOT NULL ,
@@ -31,7 +31,7 @@ CREATE TABLE consumer (
 );
 
 -- Goods table
-CREATE TABLE goods (
+CREATE TABLE IF NOT EXISTS goods (
                                         id serial NOT NULL UNIQUE ,
                                         name VARCHAR(100) NOT NULL ,
                                         price NUMERIC(5, 2) NOT NULL ,
@@ -41,7 +41,7 @@ CREATE TABLE goods (
 );
 
 -- GoodsType table
-CREATE TABLE goods_type (
+CREATE TABLE IF NOT EXISTS goods_type (
                                          id serial NOT NULL UNIQUE ,
                                          parent_id INTEGER ,
                                          name VARCHAR(100) NOT NULL ,
@@ -50,7 +50,7 @@ CREATE TABLE goods_type (
 );
 
 -- User table
-CREATE TABLE "user" (
+CREATE TABLE IF NOT EXISTS "user" (
                                          id serial NOT NULL UNIQUE ,
                                          username VARCHAR(100) NOT NULL UNIQUE ,
                                          password VARCHAR(100) NOT NULL ,
@@ -58,20 +58,20 @@ CREATE TABLE "user" (
 );
 
 -- Role table table
-CREATE TABLE role (
+CREATE TABLE IF NOT EXISTS role (
                                         id serial NOT NULL UNIQUE,
                                         name VARCHAR(50) NOT NULL UNIQUE
 );
 
 -- User_Role table
-CREATE TABLE user_role (
+CREATE TABLE IF NOT EXISTS user_role (
                                         id serial NOT NULL UNIQUE,
                                         user_id INTEGER NOT NULL,
                                         role_id INTEGER NOT NULL
 );
 
 -- Order table
-CREATE TABLE "order" (
+CREATE TABLE IF NOT EXISTS "order" (
                                        id serial NOT NULL UNIQUE,
                                        number INTEGER NOT NULL ,
                                        user_id INTEGER NOT NULL ,
@@ -80,7 +80,7 @@ CREATE TABLE "order" (
 );
 
 -- BasketOfGoods table table
-CREATE TABLE basket_of_goods (
+CREATE TABLE IF NOT EXISTS basket_of_goods (
                                         goods_id INTEGER NOT NULL ,
                                         order_id INTEGER NOT NULL ,
                                         count INTEGER NOT NULL ,
@@ -88,13 +88,29 @@ CREATE TABLE basket_of_goods (
 );
 
 -- adding foreign key for tables
+ALTER TABLE goods DROP CONSTRAINT IF EXISTS goods_fk1;
 ALTER TABLE goods ADD CONSTRAINT goods_fk1 FOREIGN KEY (goods_type_id) REFERENCES goods_type(id) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE goods DROP CONSTRAINT IF EXISTS goods_fk2;
 ALTER TABLE goods ADD CONSTRAINT goods_fk2 FOREIGN KEY (supplier_id) REFERENCES supplier(user_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE goods_type DROP CONSTRAINT IF EXISTS goods_type_fk;
 ALTER TABLE goods_type ADD CONSTRAINT goods_type_fk FOREIGN KEY (parent_id) REFERENCES goods_type(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE "order" DROP CONSTRAINT IF EXISTS order_fk;
 ALTER TABLE "order" ADD CONSTRAINT order_fk FOREIGN KEY (user_id) REFERENCES consumer(user_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE consumer DROP CONSTRAINT IF EXISTS consumer_fk;
 ALTER TABLE consumer ADD CONSTRAINT consumer_fk FOREIGN KEY (user_id) REFERENCES "user"(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE supplier DROP CONSTRAINT IF EXISTS supplier_fk;
 ALTER TABLE supplier ADD CONSTRAINT supplier_fk FOREIGN KEY (user_id) REFERENCES "user"(id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE user_role DROP CONSTRAINT IF EXISTS user_role_fk1;
 ALTER TABLE user_role ADD CONSTRAINT user_role_fk1 FOREIGN KEY (user_id) REFERENCES "user"(id);
+ALTER TABLE user_role DROP CONSTRAINT IF EXISTS user_role_fk2;
 ALTER TABLE user_role ADD CONSTRAINT user_role_fk2 FOREIGN KEY (role_id) REFERENCES role(id);
+
+ALTER TABLE basket_of_goods DROP CONSTRAINT IF EXISTS basket_of_goods_fk1;
 ALTER TABLE basket_of_goods ADD CONSTRAINT basket_of_goods_fk1 FOREIGN KEY (goods_id) REFERENCES goods(id) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE basket_of_goods DROP CONSTRAINT IF EXISTS basket_of_goods_fk2;
 ALTER TABLE basket_of_goods ADD CONSTRAINT basket_of_goods_fk2 FOREIGN KEY (order_id) REFERENCES "order"(id)  ON DELETE CASCADE ON UPDATE CASCADE;

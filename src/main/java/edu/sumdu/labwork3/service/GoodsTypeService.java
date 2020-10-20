@@ -8,6 +8,6 @@ public interface GoodsTypeService {
     void insert(GoodsType goodsType);
     List<GoodsType> getAll();
     void update(GoodsType goodsType);
-    void delete(GoodsType goodsType);
+    void delete(int id);
     GoodsType getById(int id);
 }
