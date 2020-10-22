@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
     public User getById(int id) {
         return daoUser.getById(id);
     }
+
+    @Override
+    public User getByUsername(String username) {
+        return daoUser.getByUserName(username);
+    }
 }

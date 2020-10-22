@@ -3,10 +3,10 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <html>
     <head>
-    <title>Add new student</title>
+    <title>Add new goods type</title>
     </head>
     <body>
-    <h1>Add New Employee</h1>
+    <h1>Add new goods type</h1>
     <form:form method="POST" action="/goodsType/create">
         <table >
         <tr>

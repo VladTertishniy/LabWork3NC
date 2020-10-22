@@ -52,4 +52,12 @@ public class DaoUserImpl implements DaoUser {
         List<User> users = new ArrayList<>(userList);
         return users.get(0);
     }
+
+    @Override
+    public User getByUserName(String username) {
+        String query = "SELECT * FROM \"user\" WHERE username = ?";
+        List<User> userList = jdbcTemplate.query(query, new UserMapper(), username);
+        List<User> users = new ArrayList<>(userList);
+        return users.get(0);
+    }
 }

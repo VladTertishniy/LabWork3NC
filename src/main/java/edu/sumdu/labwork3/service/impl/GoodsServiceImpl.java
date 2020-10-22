@@ -32,8 +32,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public void delete(Goods goods) {
-        daoGoods.delete(goods);
+    public void delete(int id) {
+        daoGoods.delete(id);
     }
 
     @Override

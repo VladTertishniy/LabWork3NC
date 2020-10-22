@@ -1,7 +1,6 @@
 package edu.sumdu.labwork3.controller;
 
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import edu.sumdu.labwork3.model.Consumer;
 import edu.sumdu.labwork3.model.Order;
 import edu.sumdu.labwork3.service.ConsumerService;

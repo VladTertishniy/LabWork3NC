@@ -7,7 +7,7 @@ import java.util.List;
 public interface DaoGoods {
     void insert(Goods goods);
     void update(Goods goods);
-    void delete(Goods goods);
+    void delete(int id);
     List<Goods> findAll();
     Goods getById(int id);
 }

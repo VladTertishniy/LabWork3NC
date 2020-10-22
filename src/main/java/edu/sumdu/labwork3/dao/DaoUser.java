@@ -10,4 +10,5 @@ public interface DaoUser {
     void delete(User user);
     List<User> findAll();
     User getById(int id);
+    User getByUserName(String username);
 }

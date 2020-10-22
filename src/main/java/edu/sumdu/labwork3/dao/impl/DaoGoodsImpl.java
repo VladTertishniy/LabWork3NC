@@ -33,9 +33,9 @@ public class DaoGoodsImpl implements DaoGoods {
     }
 
     @Override
-    public void delete(Goods goods) {
+    public void delete(int id) {
         String query = "DELETE FROM goods WHERE id = ? ";
-        jdbcTemplate.update(query, goods.getId());
+        jdbcTemplate.update(query, id);
     }
 
     @Override
