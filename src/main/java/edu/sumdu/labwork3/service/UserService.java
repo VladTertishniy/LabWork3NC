@@ -5,10 +5,10 @@ import edu.sumdu.labwork3.model.User;
 import java.util.List;
 
 public interface UserService {
-    void insert(User user);
+    User insert(User user);
     List<User> getAll();
-    void update(User user);
-    void delete(User user);
+    User update(User user);
+    User delete(User user);
     User getById(int id);
     User getByUsername(String username);
 }

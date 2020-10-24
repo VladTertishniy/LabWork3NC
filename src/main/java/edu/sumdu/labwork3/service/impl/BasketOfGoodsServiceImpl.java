@@ -37,12 +37,12 @@ public class BasketOfGoodsServiceImpl implements BasketOfGoodsService {
     }
 
     @Override
-    public BasketOfGoods getByGoodsId(int id) {
+    public List<BasketOfGoods> getByGoodsId(int id) {
         return daoBasketOfGoods.getByGoodsId(id);
     }
 
     @Override
-    public BasketOfGoods getByOrderId(int id) {
+    public List<BasketOfGoods> getByOrderId(int id) {
         return daoBasketOfGoods.getByOrderId(id);
     }
 }

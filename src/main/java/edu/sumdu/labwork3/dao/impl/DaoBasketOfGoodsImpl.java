@@ -77,7 +77,7 @@ public class DaoBasketOfGoodsImpl implements DaoBasketOfGoods {
     }
 
     @Override
-    public BasketOfGoods getByGoodsId(int id) {
+    public List<BasketOfGoods> getByGoodsId(int id) {
         String query = "select u.id user_id,\n" +
                 "       u.username user_name,\n" +
                 "       u.password user_password,\n" +
@@ -112,12 +112,11 @@ public class DaoBasketOfGoodsImpl implements DaoBasketOfGoods {
                 "    left join goods_type gt on g.goods_type_id = gt.id\n" +
                 "    left join supplier s on g.supplier_id = s.user_id where g.id = ?";
         List<BasketOfGoods> basketOfGoodsList = jdbcTemplate.query(query, new BasketOfGoodsMapper(), id);
-        List<BasketOfGoods> basketsOfGoods = new ArrayList<>(basketOfGoodsList);
-        return basketsOfGoods.get(0);
+        return new ArrayList<>(basketOfGoodsList);
     }
 
     @Override
-    public BasketOfGoods getByOrderId(int id) {
+    public List<BasketOfGoods> getByOrderId(int id) {
         String query = "select u.id user_id,\n" +
                 "       u.username user_name,\n" +
                 "       u.password user_password,\n" +
@@ -152,7 +151,6 @@ public class DaoBasketOfGoodsImpl implements DaoBasketOfGoods {
                 "    left join goods_type gt on g.goods_type_id = gt.id\n" +
                 "    left join supplier s on g.supplier_id = s.user_id where o.id = ?";
         List<BasketOfGoods> basketOfGoodsList = jdbcTemplate.query(query, new BasketOfGoodsMapper(), id);
-        List<BasketOfGoods> basketsOfGoods = new ArrayList<>(basketOfGoodsList);
-        return basketsOfGoods.get(0);
+        return new ArrayList<>(basketOfGoodsList);
     }
 }

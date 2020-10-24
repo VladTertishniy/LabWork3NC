@@ -9,6 +9,6 @@ public interface BasketOfGoodsService {
     void update(BasketOfGoods basketOfGoods);
     void delete(BasketOfGoods basketOfGoods);
     List<BasketOfGoods> findAll();
-    BasketOfGoods getByGoodsId(int id);
-    BasketOfGoods getByOrderId(int id);
+    List<BasketOfGoods> getByGoodsId(int id);
+    List<BasketOfGoods> getByOrderId(int id);
 }

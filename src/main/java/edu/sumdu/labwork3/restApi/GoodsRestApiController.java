@@ -1,0 +1,53 @@
+package edu.sumdu.labwork3.restApi;
+
+import edu.sumdu.labwork3.model.Goods;
+import edu.sumdu.labwork3.model.GoodsType;
+import edu.sumdu.labwork3.service.GoodsService;
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/goods")
+public class GoodsRestApiController {
+    private final GoodsService goodsService;
+    final static Logger logger = Logger.getLogger(GoodsTypeRestApiController.class);
+
+    public GoodsRestApiController(GoodsService goodsService) {
+        this.goodsService = goodsService;
+    }
+
+    @RequestMapping(value = "/get/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @ResponseStatus(HttpStatus.OK)
+    public List<Goods> getAllGoods() {
+        return goodsService.getAll();
+    }
+
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @ResponseStatus(HttpStatus.OK)
+    public Goods getByGoodsId(@PathVariable int id) {
+        return goodsService.getById(id);
+    }
+
+
+    @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @ResponseStatus(HttpStatus.OK)
+    public void createGoods(@RequestBody Goods goods) {
+        goodsService.insert(goods);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @ResponseStatus(HttpStatus.OK)
+    public void updateGoods(@RequestBody Goods goods) {
+        goodsService.update(goods);
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @ResponseStatus(HttpStatus.OK)
+    public void removeUser(@RequestBody Goods goods) {
+        goodsService.delete(goods.getId());
+    }
+}

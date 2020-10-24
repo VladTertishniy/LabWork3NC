@@ -4,6 +4,7 @@ import edu.sumdu.labwork3.model.User;
 import edu.sumdu.labwork3.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -22,17 +23,14 @@ public class UserController {
         userService.getAll();
         return "users";
     }
-    @RequestMapping("/create")
-    public String createUser() {
-//        User user = new User();
-//        user.setUser_id(2);
-//        user.setUsername("4444");
-//        user.setPassword("4444");
-        userService.getAll();
-        User user2 = userService.getById(1);
-//        userService.delete(user);
-        logger.info(user2.toString());
-        userService.delete(user2);
+
+    @RequestMapping("/create/{name}")
+    public String createUser(@PathVariable(name = "name") String name) {
+        User user = new User();
+        user.setUsername(name);
+        user.setPassword("test");
+//        logger.info(user.toString());
+        userService.insert(user);
         return "users";
     }
 }

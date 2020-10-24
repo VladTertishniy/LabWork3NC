@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS supplier (
                                         email VARCHAR(100) NOT NULL ,
                                         organization VARCHAR(100) NOT NULL ,
                                         CONSTRAINT supplier_pk PRIMARY KEY (user_id)
-);
+) with (oids = false) ;
 
 -- Consumer table
 CREATE TABLE IF NOT EXISTS consumer (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS consumer (
                                         email VARCHAR(100) NOT NULL ,
                                         counterpartyType VARCHAR(100) NOT NULL ,
                                         CONSTRAINT consumer_pk PRIMARY KEY (user_id)
-);
+) with (oids = false) ;
 
 -- Goods table
 CREATE TABLE IF NOT EXISTS goods (
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS goods (
                                         goods_type_id INTEGER NOT NULL ,
                                         supplier_id INTEGER NOT NULL ,
                                         CONSTRAINT goods_pk PRIMARY KEY (id, goods_type_id)
-);
+) with (oids = false) ;
 
 -- GoodsType table
 CREATE TABLE IF NOT EXISTS goods_type (
@@ -47,28 +47,28 @@ CREATE TABLE IF NOT EXISTS goods_type (
                                          name VARCHAR(100) NOT NULL ,
                                          vendorCode VARCHAR(100) NOT NULL ,
                                          CONSTRAINT goods_type_pk PRIMARY KEY (id)
-);
+) with (oids = false) ;
 
 -- User table
 CREATE TABLE IF NOT EXISTS "user" (
-                                         id serial NOT NULL UNIQUE ,
+                                         id serial NOT NULL UNIQUE,
                                          username VARCHAR(100) NOT NULL UNIQUE ,
                                          password VARCHAR(100) NOT NULL ,
                                          CONSTRAINT user_pk PRIMARY KEY (id)
-);
+) with (oids = false) ;
 
 -- Role table table
 CREATE TABLE IF NOT EXISTS role (
                                         id serial NOT NULL UNIQUE,
                                         name VARCHAR(50) NOT NULL UNIQUE
-);
+) with (oids = false) ;
 
 -- User_Role table
 CREATE TABLE IF NOT EXISTS user_role (
                                         id serial NOT NULL UNIQUE,
                                         user_id INTEGER NOT NULL,
                                         role_id INTEGER NOT NULL
-);
+) with (oids = false) ;
 
 -- Order table
 CREATE TABLE IF NOT EXISTS "order" (
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS "order" (
                                        user_id INTEGER NOT NULL ,
                                        orderDate TIMESTAMP NOT NULL ,
                                        CONSTRAINT order_pk PRIMARY KEY (id, user_id)
-);
+) with (oids = false) ;
 
 -- BasketOfGoods table table
 CREATE TABLE IF NOT EXISTS basket_of_goods (
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS basket_of_goods (
                                         order_id INTEGER NOT NULL ,
                                         count INTEGER NOT NULL ,
                                         sum NUMERIC(5, 2) NOT NULL
-);
+) with (oids = false) ;
 
 -- adding foreign key for tables
 ALTER TABLE goods DROP CONSTRAINT IF EXISTS goods_fk1;
