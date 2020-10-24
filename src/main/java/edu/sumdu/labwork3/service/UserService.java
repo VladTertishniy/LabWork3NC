@@ -8,7 +8,7 @@ public interface UserService {
     User insert(User user);
     List<User> getAll();
     User update(User user);
-    User delete(User user);
+    void delete(int id);
     User getById(int id);
     User getByUsername(String username);
 }

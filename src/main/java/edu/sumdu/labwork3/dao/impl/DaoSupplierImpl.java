@@ -21,7 +21,7 @@ public class DaoSupplierImpl implements DaoSupplier {
     }
 
     @Override
-    public void insert(Supplier supplier) {
+    public Supplier insert(Supplier supplier) {
         String query = "INSERT INTO supplier (user_id, firstname, lastname, phonenumber, email, organization) VALUES (?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(
                 query,
@@ -31,10 +31,11 @@ public class DaoSupplierImpl implements DaoSupplier {
                 supplier.getPhoneNumber(),
                 supplier.getEmail(),
                 supplier.getOrganization());
+        return supplier;
     }
 
     @Override
-    public void update(Supplier supplier) {
+    public Supplier update(Supplier supplier) {
         String query = "UPDATE supplier SET firstname = ?, lastname = ?, phonenumber = ?, email = ?, organization = ? WHERE user_id = ?";
         jdbcTemplate.update(
                 query,
@@ -44,12 +45,13 @@ public class DaoSupplierImpl implements DaoSupplier {
                 supplier.getEmail(),
                 supplier.getOrganization(),
                 supplier.getUser().getUser_id());
+        return supplier;
     }
 
     @Override
-    public void delete(Supplier supplier) {
+    public void delete(int id) {
         String query = "DELETE FROM supplier WHERE user_id = ? ";
-        jdbcTemplate.update(query, supplier.getUser().getUser_id());
+        jdbcTemplate.update(query, id);
     }
 
     @Override

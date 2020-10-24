@@ -17,8 +17,8 @@ public class ConsumerServiceImpl implements ConsumerService {
     }
 
     @Override
-    public void insert(Consumer consumer) {
-        daoConsumer.insert(consumer);
+    public Consumer insert(Consumer consumer) {
+        return daoConsumer.insert(consumer);
     }
 
     @Override
@@ -27,13 +27,13 @@ public class ConsumerServiceImpl implements ConsumerService {
     }
 
     @Override
-    public void update(Consumer consumer) {
-        daoConsumer.update(consumer);
+    public Consumer update(Consumer consumer) {
+        return daoConsumer.update(consumer);
     }
 
     @Override
-    public void delete(Consumer consumer) {
-        daoConsumer.delete(consumer);
+    public void delete(int id) {
+        daoConsumer.delete(id);
     }
 
     @Override

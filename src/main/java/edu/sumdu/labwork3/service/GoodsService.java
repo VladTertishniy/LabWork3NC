@@ -5,9 +5,9 @@ import edu.sumdu.labwork3.model.Goods;
 import java.util.List;
 
 public interface GoodsService {
-    void insert(Goods goods);
+    Goods insert(Goods goods);
     List<Goods> getAll();
-    void update(Goods goods);
+    Goods update(Goods goods);
     void delete(int id);
     Goods getById(int id);
 }

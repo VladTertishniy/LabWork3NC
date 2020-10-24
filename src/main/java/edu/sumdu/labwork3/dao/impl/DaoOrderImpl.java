@@ -22,21 +22,23 @@ public class DaoOrderImpl implements DaoOrder {
     }
 
     @Override
-    public void insert(Order order) {
+    public Order insert(Order order) {
         String query = "insert into \"order\"(number, user_id, orderDate) VALUES (?, ?, ?)";
         jdbcTemplate.update(query, order.getNumber(), order.getConsumer().getUser().getUser_id(), Timestamp.valueOf(order.getOrderDate()));
+        return order;
     }
 
     @Override
-    public void update(Order order) {
+    public Order update(Order order) {
         String query = "UPDATE \"order\" SET number = ?, user_id = ?, orderDate = ? WHERE id = ?";
         jdbcTemplate.update(query, order.getNumber(), order.getConsumer().getUser().getUser_id(), Timestamp.valueOf(order.getOrderDate()));
+        return order;
     }
 
     @Override
-    public void delete(Order order) {
+    public void delete(int id) {
         String query = "DELETE FROM \"order\" WHERE id = ? ";
-        jdbcTemplate.update(query, order.getId());
+        jdbcTemplate.update(query, id);
     }
 
     @Override

@@ -32,17 +32,16 @@ public class GoodsTypeRestApiController {
         return goodsTypeService.getById(id);
     }
 
-
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public void createGoodsType(@RequestBody GoodsType goodsType) {
-        goodsTypeService.insert(goodsType);
+    public GoodsType createGoodsType(@RequestBody GoodsType goodsType) {
+        return goodsTypeService.insert(goodsType);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public void updateGoodsType(@RequestBody GoodsType goodsType) {
-        goodsTypeService.update(goodsType);
+    public GoodsType updateGoodsType(@RequestBody GoodsType goodsType) {
+        return goodsTypeService.update(goodsType);
     }
 
     @RequestMapping(value = "/remove", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})

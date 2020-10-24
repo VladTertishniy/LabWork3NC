@@ -17,8 +17,8 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public void insert(Supplier supplier) {
-        daoSupplier.insert(supplier);
+    public Supplier insert(Supplier supplier) {
+        return daoSupplier.insert(supplier);
     }
 
     @Override
@@ -27,13 +27,13 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public void update(Supplier supplier) {
-        daoSupplier.update(supplier);
+    public Supplier update(Supplier supplier) {
+        return daoSupplier.update(supplier);
     }
 
     @Override
-    public void delete(Supplier supplier) {
-        daoSupplier.delete(supplier);
+    public void delete(int id) {
+        daoSupplier.delete(id);
     }
 
     @Override

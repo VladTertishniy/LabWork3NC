@@ -17,13 +17,13 @@ public class BasketOfGoodsServiceImpl implements BasketOfGoodsService {
     }
 
     @Override
-    public void insert(BasketOfGoods basketOfGoods) {
-        daoBasketOfGoods.insert(basketOfGoods);
+    public BasketOfGoods insert(BasketOfGoods basketOfGoods) {
+        return daoBasketOfGoods.insert(basketOfGoods);
     }
 
     @Override
-    public void update(BasketOfGoods basketOfGoods) {
-        daoBasketOfGoods.update(basketOfGoods);
+    public BasketOfGoods update(BasketOfGoods basketOfGoods) {
+        return daoBasketOfGoods.update(basketOfGoods);
     }
 
     @Override

@@ -5,9 +5,15 @@ import edu.sumdu.labwork3.mapper.GoodsMapper;
 import edu.sumdu.labwork3.model.Goods;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -21,15 +27,36 @@ public class DaoGoodsImpl implements DaoGoods {
     }
 
     @Override
-    public void insert(Goods goods) {
+    public Goods insert(Goods goods) {
         String query = "INSERT INTO goods (name, price, goods_type_id, supplier_id) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(query, goods.getName(), goods.getPrice(), goods.getGoodsType().getId(), goods.getSupplier().getUser().getUser_id());
+//        jdbcTemplate.update(query, goods.getName(), goods.getPrice(), goods.getGoodsType().getId(), goods.getSupplier().getUser().getUser_id());
+        PreparedStatementCreatorFactory preparedStatementCreatorFactory = new PreparedStatementCreatorFactory(
+                query,
+                Types.VARCHAR, Types.NUMERIC, Types.INTEGER, Types.INTEGER
+        );
+        preparedStatementCreatorFactory.setReturnGeneratedKeys(true);
+
+        PreparedStatementCreator psc =
+                preparedStatementCreatorFactory.newPreparedStatementCreator(
+                        Arrays.asList(
+                                goods.getName(),
+                                goods.getPrice(),
+                                goods.getGoodsType().getId(),
+                                goods.getSupplier().getUser().getUser_id()));
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        jdbcTemplate.update(
+                psc,
+                keyHolder
+        );
+        goods.setId((int) keyHolder.getKeys().get("id"));
+        return goods;
     }
 
     @Override
-    public void update(Goods goods) {
+    public Goods update(Goods goods) {
         String query = "UPDATE goods SET name = ?, price = ?, goods_type_id = ?, supplier_id = ?  WHERE id = ?";
         jdbcTemplate.update(query, goods.getName(), goods.getPrice(), goods.getGoodsType().getId(), goods.getSupplier().getUser().getUser_id() ,goods.getId());
+        return goods;
     }
 
     @Override

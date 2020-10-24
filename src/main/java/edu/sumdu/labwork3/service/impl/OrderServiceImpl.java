@@ -17,8 +17,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void insert(Order order) {
-        daoOrder.insert(order);
+    public Order insert(Order order) {
+        return daoOrder.insert(order);
     }
 
     @Override
@@ -27,13 +27,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void update(Order order) {
-        daoOrder.update(order);
+    public Order update(Order order) {
+        return daoOrder.update(order);
     }
 
     @Override
-    public void delete(Order order) {
-        daoOrder.delete(order);
+    public void delete(int id) {
+        daoOrder.delete(id);
     }
 
     @Override

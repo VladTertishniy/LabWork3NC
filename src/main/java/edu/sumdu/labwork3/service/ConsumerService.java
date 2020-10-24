@@ -5,9 +5,9 @@ import edu.sumdu.labwork3.model.Consumer;
 import java.util.List;
 
 public interface ConsumerService {
-    void insert(Consumer consumer);
+    Consumer insert(Consumer consumer);
     List<Consumer> getAll();
-    void update(Consumer consumer);
-    void delete(Consumer consumer);
+    Consumer update(Consumer consumer);
+    void delete(int id);
     Consumer getById(int id);
 }

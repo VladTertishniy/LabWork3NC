@@ -1,8 +1,8 @@
 package edu.sumdu.labwork3.restApi;
 
-import edu.sumdu.labwork3.controller.UserController;
-import edu.sumdu.labwork3.model.User;
-import edu.sumdu.labwork3.service.UserService;
+import edu.sumdu.labwork3.model.Goods;
+import edu.sumdu.labwork3.model.Order;
+import edu.sumdu.labwork3.service.OrderService;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,48 +11,42 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
-public class UserRestApiController {
-    private final UserService userService;
-    final static Logger logger = Logger.getLogger(UserRestApiController.class);
+@RequestMapping("/api/Order")
+public class OrderRestApiController {
+    private final OrderService orderService;
+    final static Logger logger = Logger.getLogger(OrderRestApiController.class);
 
-    public UserRestApiController(UserService userService) {
-        this.userService = userService;
+    public OrderRestApiController(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     @RequestMapping(value = "/get/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public List<User> getAllUser() {
-        return userService.getAll();
+    public List<Order> getAllOrders() {
+        return orderService.getAll();
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public User getById(@PathVariable int id) {
-        return userService.getById(id);
-    }
-
-    @RequestMapping(value = "/getByUsername/{username}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    @ResponseStatus(HttpStatus.OK)
-    public User getByUserName(@PathVariable String username) {
-        return userService.getByUsername(username);
+    public Order getByOrderId(@PathVariable int id) {
+        return orderService.getById(id);
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public User createUser(@RequestBody User user) {
-        return userService.insert(user);
+    public Order createOrder(@RequestBody Order order) {
+        return orderService.insert(order);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public User update(@RequestBody User user) {
-        return userService.update(user);
+    public Order updateOrder(@RequestBody Order order) {
+        return orderService.update(order);
     }
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable int id) {
-        userService.delete(id);
+    public void removeOrder(@PathVariable int id) {
+        orderService.delete(id);
     }
 }

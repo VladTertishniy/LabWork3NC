@@ -24,10 +24,10 @@ public class UserController {
         return "users";
     }
 
-    @RequestMapping("/create/{name}")
-    public String createUser(@PathVariable(name = "name") String name) {
+    @RequestMapping("/create")
+    public String createUser() {
         User user = new User();
-        user.setUsername(name);
+        user.setUsername("test");
         user.setPassword("test");
 //        logger.info(user.toString());
         userService.insert(user);

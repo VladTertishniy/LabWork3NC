@@ -5,9 +5,9 @@ import edu.sumdu.labwork3.model.Supplier;
 import java.util.List;
 
 public interface SupplierService {
-    void insert(Supplier supplier);
+    Supplier insert(Supplier supplier);
     List<Supplier> getAll();
-    void update(Supplier supplier);
-    void delete(Supplier supplier);
+    Supplier update(Supplier supplier);
+    void delete(int id);
     Supplier getById(int id);
 }

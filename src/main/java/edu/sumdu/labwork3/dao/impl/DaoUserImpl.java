@@ -4,13 +4,11 @@ import edu.sumdu.labwork3.dao.DaoUser;
 import edu.sumdu.labwork3.mapper.UserMapper;
 import edu.sumdu.labwork3.model.User;
 import org.apache.log4j.Logger;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.*;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
 
@@ -18,7 +16,6 @@ import java.util.*;
 public class DaoUserImpl implements DaoUser {
 
     private final JdbcTemplate jdbcTemplate;
-    private DataSource dataSource;
     final static Logger logger = Logger.getLogger(DaoUserImpl.class);
 
     public DaoUserImpl(JdbcTemplate jdbcTemplate) {
@@ -28,14 +25,10 @@ public class DaoUserImpl implements DaoUser {
     @Override
     public User insert(User user) {
         String query = "INSERT INTO \"user\" (username, password) VALUES (?, ?)";
-
-
         PreparedStatementCreatorFactory preparedStatementCreatorFactory = new PreparedStatementCreatorFactory(
                 query,
                 Types.VARCHAR, Types.VARCHAR
         );
-
-// By default, returnGeneratedKeys = false so change it to true
         preparedStatementCreatorFactory.setReturnGeneratedKeys(true);
 
         PreparedStatementCreator psc =
@@ -43,7 +36,6 @@ public class DaoUserImpl implements DaoUser {
                         Arrays.asList(
                                 user.getUsername(),
                                 user.getPassword()));
-
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(
                 psc,
@@ -61,10 +53,9 @@ public class DaoUserImpl implements DaoUser {
     }
 
     @Override
-    public User delete(User user) {
+    public void delete(int id) {
         String query = "DELETE FROM \"user\" WHERE id = ? ";
-        jdbcTemplate.update(query, user.getUser_id());
-        return user;
+        jdbcTemplate.update(query, id);
     }
 
     @Override

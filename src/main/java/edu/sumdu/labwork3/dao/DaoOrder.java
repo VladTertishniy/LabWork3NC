@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface DaoOrder {
 
-    void insert(Order order);
-    void update(Order order);
-    void delete(Order order);
+    Order insert(Order order);
+    Order update(Order order);
+    void delete(int id);
     List<Order> findAll();
     Order getById(int id);
 

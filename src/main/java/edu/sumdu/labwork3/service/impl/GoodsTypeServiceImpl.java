@@ -17,8 +17,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
     }
 
     @Override
-    public void insert(GoodsType goodsType) {
+    public GoodsType insert(GoodsType goodsType) {
         daoGoodsType.insert(goodsType);
+        return goodsType;
     }
 
     @Override
@@ -27,8 +28,9 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
     }
 
     @Override
-    public void update(GoodsType goodsType) {
+    public GoodsType update(GoodsType goodsType) {
         daoGoodsType.update(goodsType);
+        return goodsType;
     }
 
     @Override

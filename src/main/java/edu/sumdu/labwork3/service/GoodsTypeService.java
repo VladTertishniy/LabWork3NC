@@ -5,9 +5,9 @@ import edu.sumdu.labwork3.model.GoodsType;
 import java.util.List;
 
 public interface GoodsTypeService {
-    void insert(GoodsType goodsType);
+    GoodsType insert(GoodsType goodsType);
     List<GoodsType> getAll();
-    void update(GoodsType goodsType);
+    GoodsType update(GoodsType goodsType);
     void delete(int id);
     GoodsType getById(int id);
 }

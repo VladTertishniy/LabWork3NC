@@ -21,7 +21,7 @@ public class DaoConsumerImpl implements DaoConsumer {
     }
 
     @Override
-    public void insert(Consumer consumer) {
+    public Consumer insert(Consumer consumer) {
         String query = "INSERT INTO consumer (user_id, firstname, lastname, phonenumber, email, counterpartytype) VALUES (?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(
                 query,
@@ -31,10 +31,11 @@ public class DaoConsumerImpl implements DaoConsumer {
                 consumer.getPhoneNumber(),
                 consumer.getEmail(),
                 consumer.getCounterpartyType());
+        return consumer;
     }
 
     @Override
-    public void update(Consumer consumer) {
+    public Consumer update(Consumer consumer) {
         String query = "UPDATE consumer SET firstname = ?, lastname = ?, phonenumber = ?, email = ?, counterpartytype = ? WHERE user_id = ?";
         jdbcTemplate.update(
                 query,
@@ -44,12 +45,13 @@ public class DaoConsumerImpl implements DaoConsumer {
                 consumer.getEmail(),
                 consumer.getCounterpartyType(),
                 consumer.getUser().getUser_id());
+        return consumer;
     }
 
     @Override
-    public void delete(Consumer consumer) {
+    public void delete(int id) {
         String query = "DELETE FROM consumer WHERE user_id = ? ";
-        jdbcTemplate.update(query, consumer.getUser().getUser_id());
+        jdbcTemplate.update(query, id);
     }
 
     @Override

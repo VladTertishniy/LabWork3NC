@@ -21,13 +21,27 @@ public class DaoBasketOfGoodsImpl implements DaoBasketOfGoods {
     }
 
     @Override
-    public void insert(BasketOfGoods basketOfGoods) {
-
+    public BasketOfGoods insert(BasketOfGoods basketOfGoods) {
+        String query = "INSERT INTO basket_of_goods (goods_id, order_id, count, sum) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(
+                query,
+                basketOfGoods.getGoods().getId(),
+                basketOfGoods.getOrder().getId(),
+                basketOfGoods.getCount(),
+                basketOfGoods.getSum());
+        return basketOfGoods;
     }
 
     @Override
-    public void update(BasketOfGoods basketOfGoods) {
-
+    public BasketOfGoods update(BasketOfGoods basketOfGoods) {
+        String query = "UPDATE basket_of_goods SET goods_id = ?, count = ?, sum = ? WHERE order_id = ?";
+        jdbcTemplate.update(
+                query,
+                basketOfGoods.getGoods().getId(),
+                basketOfGoods.getCount(),
+                basketOfGoods.getSum(),
+                basketOfGoods.getOrder().getId());
+        return basketOfGoods;
     }
 
     @Override

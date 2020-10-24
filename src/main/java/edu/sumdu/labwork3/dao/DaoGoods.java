@@ -5,8 +5,8 @@ import edu.sumdu.labwork3.model.Goods;
 import java.util.List;
 
 public interface DaoGoods {
-    void insert(Goods goods);
-    void update(Goods goods);
+    Goods insert(Goods goods);
+    Goods update(Goods goods);
     void delete(int id);
     List<Goods> findAll();
     Goods getById(int id);
