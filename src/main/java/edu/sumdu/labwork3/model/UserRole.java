@@ -7,7 +7,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Role {
+public class UserRole {
     private int id;
-    private String name;
+    private User user;
+    private Role role;
 }

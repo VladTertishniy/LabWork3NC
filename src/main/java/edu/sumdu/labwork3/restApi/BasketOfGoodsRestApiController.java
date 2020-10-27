@@ -26,7 +26,7 @@ public class BasketOfGoodsRestApiController {
         return basketOfGoodsService.findAll();
     }
 
-    @RequestMapping(value = "/getByOrderId/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @RequestMapping(value = "/getByGoodsId/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public List<BasketOfGoods> getByGoodsId(@PathVariable int id) {
         return basketOfGoodsService.getByGoodsId(id);

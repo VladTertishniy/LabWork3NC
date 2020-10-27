@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -16,6 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = "edu.sumdu.labwork3")
 public class WebConfig implements WebMvcConfigurer {
+
     @Bean
     public ViewResolver getViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
@@ -25,11 +25,6 @@ public class WebConfig implements WebMvcConfigurer {
         return internalResourceViewResolver;
     }
 
-//    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/login").setViewName("login");
-//    }
-
-    @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.favorPathExtension(true).
                 favorParameter(false).
