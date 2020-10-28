@@ -4,7 +4,15 @@
 <head>
 <title>Consumers</title>
 </head>
+    <style>
+    .text {
+    text-align:  center;
+    }
+    </style>
 <body>
+    <img height="50%" width="100%" src="/files/top.png"/>
+    <div class="text">
+    <font size="10" color="black" face="algerian">
 <p>Consumers</p>
 
 <div>All consumers:</div>
@@ -34,5 +42,7 @@
 </table>
 <a href="consumers/addConsumer">Add consumer</a></br>
 <a href="index.jsp" >Back to main page</a>
+    </font>
+    </div>
 </body>
 </html>

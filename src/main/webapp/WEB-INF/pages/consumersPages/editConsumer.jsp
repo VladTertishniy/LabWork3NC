@@ -5,6 +5,14 @@
 <head>
 <title>Edit consumer</title>
 </head>
+    <style>
+    .text {
+    text-align:  center;
+    }
+    </style>
+    <img height="50%" width="100%" src="/files/top.png"/>
+    <div class="text">
+    <font size="10" color="black" face="algerian">
 <body>
 <h1>Edit consumer:</h1>
 <form:form method="POST" action="/consumers/edit">
@@ -39,5 +47,7 @@
     </tr>
     </table>
 </form:form>
+    </font>
+    </div>
 </body>
 </html>

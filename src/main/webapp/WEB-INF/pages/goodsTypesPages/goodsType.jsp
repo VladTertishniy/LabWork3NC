@@ -5,7 +5,15 @@
     <head>
     <title>Goods types</title>
     </head>
-    <body>
+        <style>
+        .text {
+        text-align:  center;
+        }
+        </style>
+        <body>
+        <img height="50%" width="100%" src="/files/top.png"/>
+        <div class="text">
+        <font size="10" color="black" face="algerian">
     <p>GoodsType</p>
     <div>All goods types:</div>
 
@@ -31,5 +39,7 @@
     </table>
         <a href="goodsType/addGoodsType">Add goods type</a></br>
         <a href="index.jsp" >Back to main page</a>
+        </font>
+        </div>
     </body>
     </html>

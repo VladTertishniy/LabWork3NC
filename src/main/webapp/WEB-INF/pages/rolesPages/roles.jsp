@@ -5,7 +5,15 @@
 <head>
 <title>Roles</title>
 </head>
-<body>
+    <style>
+    .text {
+    text-align:  center;
+    }
+    </style>
+    <body>
+    <img height="50%" width="100%" src="/files/top.png"/>
+    <div class="text">
+    <font size="10" color="black" face="algerian">
 <p>Role</p>
 <div>All roles:</div>
 
@@ -27,5 +35,7 @@
 </table>
 <a href="roles/addRole">Add role</a></br>
 <a href="index.jsp" >Back to main page</a>
+    </font>
+    </div>
 </body>
 </html>

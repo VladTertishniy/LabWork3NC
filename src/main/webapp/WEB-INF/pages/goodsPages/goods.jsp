@@ -4,7 +4,15 @@
     <head>
     <title>Title</title>
     </head>
+        <style>
+        .text {
+        text-align:  center;
+        }
+        </style>
     <body>
+        <img height="50%" width="100%" src="/files/top.png"/>
+        <div class="text">
+        <font size="10" color="black" face="algerian">
     <p>Goods</p>
 
     <div>All goods types:</div>
@@ -34,5 +42,7 @@
         <a href="goods/addGoods">Add goods</a></br>
         <a href="goodsType">Show goods types</a></br>
         <a href="index.jsp" >Back to main page</a>
+        </font>
+        </div>
     </body>
     </html>
