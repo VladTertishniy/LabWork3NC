@@ -50,13 +50,11 @@ public class GoodsController {
     public String editGoodsType(@PathVariable int id, Model model){
         Goods goods = goodsService.getById(id);
         model.addAttribute("command", goods);
-        logger.info(goods.toString() + " before edit");
         return "goodsPages/editGoods";
     }
 
     @RequestMapping(value="/edit",method = RequestMethod.POST)
     public String edit(@ModelAttribute("command") Goods goods){
-        logger.info(goods.toString() + " after edit");
         goodsService.update(goods);
         return "redirect:/goods";
     }
