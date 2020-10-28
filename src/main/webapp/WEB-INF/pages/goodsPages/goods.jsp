@@ -31,8 +31,8 @@
         </tr>
     </c:forEach>
     </table>
-        <a href="goods/addGoods">Add goods</a>
-        <a href="goodsType">Show goods types</a>
+        <a href="goods/addGoods">Add goods</a></br>
+        <a href="goodsType">Show goods types</a></br>
         <a href="index.jsp" >Back to main page</a>
     </body>
     </html>

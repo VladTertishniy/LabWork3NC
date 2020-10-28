@@ -29,7 +29,7 @@
         </tr>
     </c:forEach>
     </table>
-        <a href="goodsType/addGoodsType">Add goods type</a>
+        <a href="goodsType/addGoodsType">Add goods type</a></br>
         <a href="index.jsp" >Back to main page</a>
     </body>
     </html>

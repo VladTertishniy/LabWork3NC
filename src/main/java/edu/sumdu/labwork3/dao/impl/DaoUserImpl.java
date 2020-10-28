@@ -54,7 +54,7 @@ public class DaoUserImpl implements DaoUser {
 
     @Override
     public void delete(int id) {
-        String query = "DELETE FROM \"user\" WHERE id = ? ";
+        String query = "DELETE FROM \"user\" WHERE id = ?";
         jdbcTemplate.update(query, id);
     }
 

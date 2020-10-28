@@ -25,7 +25,7 @@
     </tr>
 </c:forEach>
 </table>
-<a href="roles/addRole">Add role</a>
+<a href="roles/addRole">Add role</a></br>
 <a href="index.jsp" >Back to main page</a>
 </body>
 </html>
