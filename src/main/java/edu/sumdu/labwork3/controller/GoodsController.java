@@ -24,7 +24,6 @@ public class GoodsController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showAllGoods() {
-        logger.info("goods");
         List<Goods> goodsList = goodsService.getAll();
         return new ModelAndView("goodsPages/goods", "goodsList", goodsList);
     }

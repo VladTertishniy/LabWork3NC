@@ -25,7 +25,6 @@ public class GoodsTypeController {
     public ModelAndView showAllGoodsTypes() {
         List<GoodsType> goodsTypeList = goodsTypeService.getAll();
         return new ModelAndView("goodsTypesPages/goodsType", "goodsTypeList", goodsTypeList);
-//        return "goodsType";
     }
 
     @RequestMapping(value="/editGoodsType/{id}", method = RequestMethod.GET)

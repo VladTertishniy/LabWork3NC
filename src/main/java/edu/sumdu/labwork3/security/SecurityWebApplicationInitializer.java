@@ -1,4 +1,4 @@
-package edu.sumdu.labwork3.configuration;
+package edu.sumdu.labwork3.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

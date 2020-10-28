@@ -1,6 +1,5 @@
 package edu.sumdu.labwork3.restApi;
 
-import edu.sumdu.labwork3.controller.UserController;
 import edu.sumdu.labwork3.model.User;
 import edu.sumdu.labwork3.service.UserService;
 import org.apache.log4j.Logger;
@@ -20,7 +19,7 @@ public class UserRestApiController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/get/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUser() {
         return userService.getAll();
@@ -50,7 +49,7 @@ public class UserRestApiController {
         return userService.update(user);
     }
 
-    @RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable int id) {
         userService.delete(id);

@@ -1,4 +1,4 @@
-package edu.sumdu.labwork3.configuration;
+package edu.sumdu.labwork3.security;
 
 import edu.sumdu.labwork3.details.UserDetailsServiceImpl;
 import org.apache.log4j.Logger;

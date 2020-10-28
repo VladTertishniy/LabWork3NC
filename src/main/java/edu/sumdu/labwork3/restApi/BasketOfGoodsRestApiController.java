@@ -20,7 +20,7 @@ public class BasketOfGoodsRestApiController {
         this.basketOfGoodsService = basketOfGoodsService;
     }
 
-    @RequestMapping(value = "/get/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public List<BasketOfGoods> getAllBasketOfGoods() {
         return basketOfGoodsService.findAll();
@@ -50,7 +50,7 @@ public class BasketOfGoodsRestApiController {
         return basketOfGoodsService.update(basketOfGoods);
     }
 
-    @RequestMapping(value = "/remove", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
     public void removeUser(@RequestBody BasketOfGoods basketOfGoods) {
         basketOfGoodsService.delete(basketOfGoods);

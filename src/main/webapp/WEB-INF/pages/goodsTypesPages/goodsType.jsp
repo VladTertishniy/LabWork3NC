@@ -3,7 +3,7 @@
 
     <html>
     <head>
-    <title>Title</title>
+    <title>Goods types</title>
     </head>
     <body>
     <p>GoodsType</p>
