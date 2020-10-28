@@ -1,7 +1,6 @@
 package edu.sumdu.labwork3.mapper;
 
 import edu.sumdu.labwork3.model.Consumer;
-import edu.sumdu.labwork3.model.Supplier;
 import edu.sumdu.labwork3.model.User;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;

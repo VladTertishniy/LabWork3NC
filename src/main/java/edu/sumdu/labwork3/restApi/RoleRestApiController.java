@@ -1,7 +1,6 @@
 package edu.sumdu.labwork3.restApi;
 
 import edu.sumdu.labwork3.model.Role;
-import edu.sumdu.labwork3.model.User;
 import edu.sumdu.labwork3.service.RoleService;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;

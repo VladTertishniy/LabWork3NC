@@ -29,7 +29,6 @@ public class DaoGoodsImpl implements DaoGoods {
     @Override
     public Goods insert(Goods goods) {
         String query = "INSERT INTO goods (name, price, goods_type_id, supplier_id) VALUES (?, ?, ?, ?)";
-//        jdbcTemplate.update(query, goods.getName(), goods.getPrice(), goods.getGoodsType().getId(), goods.getSupplier().getUser().getUser_id());
         PreparedStatementCreatorFactory preparedStatementCreatorFactory = new PreparedStatementCreatorFactory(
                 query,
                 Types.VARCHAR, Types.NUMERIC, Types.INTEGER, Types.INTEGER

@@ -31,7 +31,6 @@ public class DaoGoodsTypeIml implements DaoGoodsType {
     public GoodsType insert(GoodsType goodsType) {
         String query = "INSERT INTO goods_Type (name, parent_id, vendorCode) VALUES (?, ?, ?)";
         Optional<Integer> parent_id = Optional.ofNullable(goodsType.getParent_id());
-//        jdbcTemplate.update(query, goodsType.getName(), parent_id.orElse(null), goodsType.getVendorCode());
         PreparedStatementCreatorFactory preparedStatementCreatorFactory = new PreparedStatementCreatorFactory(
                 query,
                 Types.VARCHAR, Types.INTEGER, Types.VARCHAR

@@ -1,6 +1,5 @@
 package edu.sumdu.labwork3.restApi;
 
-import edu.sumdu.labwork3.model.Goods;
 import edu.sumdu.labwork3.model.Order;
 import edu.sumdu.labwork3.service.OrderService;
 import org.apache.log4j.Logger;

@@ -1,6 +1,5 @@
 package edu.sumdu.labwork3.restApi;
 
-import edu.sumdu.labwork3.controller.UserController;
 import edu.sumdu.labwork3.model.GoodsType;
 import edu.sumdu.labwork3.service.GoodsTypeService;
 import org.apache.log4j.Logger;

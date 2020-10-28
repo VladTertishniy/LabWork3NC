@@ -1,6 +1,5 @@
 package edu.sumdu.labwork3.controller;
 
-import edu.sumdu.labwork3.model.Consumer;
 import edu.sumdu.labwork3.model.Supplier;
 import edu.sumdu.labwork3.service.SupplierService;
 import org.apache.log4j.Logger;
