@@ -5,10 +5,16 @@ import edu.sumdu.labwork3.mapper.OrderMapper;
 import edu.sumdu.labwork3.model.Order;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -24,7 +30,23 @@ public class DaoOrderImpl implements DaoOrder {
     @Override
     public Order insert(Order order) {
         String query = "insert into \"order\"(number, user_id, orderDate) VALUES (?, ?, ?)";
-        jdbcTemplate.update(query, order.getNumber(), order.getConsumer().getUser().getUser_id(), Timestamp.valueOf(order.getOrderDate()));
+        PreparedStatementCreatorFactory preparedStatementCreatorFactory = new PreparedStatementCreatorFactory(
+                query,
+                Types.INTEGER, Types.INTEGER, Types.TIMESTAMP
+        );
+        preparedStatementCreatorFactory.setReturnGeneratedKeys(true);
+        PreparedStatementCreator psc =
+                preparedStatementCreatorFactory.newPreparedStatementCreator(
+                        Arrays.asList(
+                                order.getNumber(),
+                                order.getConsumer().getUser().getUser_id(),
+                                Timestamp.valueOf(order.getOrderDate())));
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        jdbcTemplate.update(
+                psc,
+                keyHolder
+        );
+        order.setId((int) keyHolder.getKeys().get("id"));
         return order;
     }
 

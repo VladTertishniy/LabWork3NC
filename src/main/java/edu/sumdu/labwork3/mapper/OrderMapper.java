@@ -24,8 +24,8 @@ public class OrderMapper implements RowMapper<Order> {
     public static final String CONSUMER_EMAIL_ROW_NAME = "consumer_email";
     public static final String CONSUMER_LASTNAME_ROW_NAME = "consumer_lastname";
     public static final String CONSUMER_FIRSTNAME_ROW_NAME = "consumer_firstname";
-    public static final String CONSUMER_PHONE_NUMBER_ROW_NAME = "consumer_phoneNumber";
-    public static final String CONSUMER_COUNTER_PARTY_TYPE_ROW_NAME = "consumer_counterpartyType";
+    public static final String CONSUMER_PHONE_NUMBER_ROW_NAME = "consumer_phonenumber";
+    public static final String CONSUMER_COUNTER_PARTY_TYPE_ROW_NAME = "consumer_counterpartytype";
     final static Logger logger = Logger.getLogger(OrderMapper.class);
 
     @Override
@@ -50,7 +50,7 @@ public class OrderMapper implements RowMapper<Order> {
         order.setId(rs.getInt(ORDER_ID_ROW_NAME));
         order.setNumber(rs.getInt(ORDER_NUMBER_ROW_NAME));
         order.setOrderDate(rs.getTimestamp(ORDER_DATE_ROW_NAME).toLocalDateTime());
-        return null;
+        return order;
     }
 
     /**

@@ -1,5 +1,7 @@
 package edu.sumdu.labwork3.service;
 
+import edu.sumdu.labwork3.model.BasketOfGoods;
+import edu.sumdu.labwork3.model.Goods;
 import edu.sumdu.labwork3.model.Order;
 
 import java.util.List;
@@ -10,4 +12,6 @@ public interface OrderService {
     Order update(Order order);
     void delete(int id);
     Order getById(int id);
+    Order preparedOrder();
+
 }

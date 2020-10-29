@@ -38,7 +38,6 @@
     <td><form:input path="supplier.user.user_id"/></td>
     </tr>
     <tr>
-    <td> </td>
     <td><input type="submit" value="Edit Save" /></td>
     </tr>
     </table>

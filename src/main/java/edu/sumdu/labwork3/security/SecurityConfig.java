@@ -48,11 +48,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http
+//            .authorizeRequests()
+//            .anyRequest()
+//            .hasAnyAuthority("CONSUMER", "SUPPLIER")
+//                .and()
+//            .formLogin();
         http
-            .authorizeRequests()
-            .anyRequest()
-            .hasAnyAuthority("CONSUMER", "SUPPLIER")
-                .and()
-            .formLogin();
+                .authorizeRequests()
+                .antMatchers("/index.jsp")
+                .authenticated()
+                .antMatchers("/navigate/admin")
+                .hasAnyAuthority("ADMIN")
+                    .and()
+                .authorizeRequests()
+                .antMatchers("/navigate/supplier")
+                .hasAnyAuthority("SUPPLIER", "ADMIN")
+                    .and()
+                .authorizeRequests()
+                .antMatchers("/navigate/consumer")
+                .hasAnyAuthority("CONSUMER", "ADMIN")
+                    .and()
+                .formLogin()
+                .permitAll()
+                    .and()
+                .logout()
+                .permitAll();
     }
 }
