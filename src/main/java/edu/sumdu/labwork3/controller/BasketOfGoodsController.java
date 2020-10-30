@@ -1,10 +1,8 @@
 package edu.sumdu.labwork3.controller;
 
 import edu.sumdu.labwork3.model.BasketOfGoods;
-import edu.sumdu.labwork3.model.User;
 import edu.sumdu.labwork3.service.BasketOfGoodsService;
 import org.apache.log4j.Logger;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

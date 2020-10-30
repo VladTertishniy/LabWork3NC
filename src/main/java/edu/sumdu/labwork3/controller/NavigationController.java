@@ -10,16 +10,16 @@ public class NavigationController {
 
     @RequestMapping(value = "/navigate/admin")
     public String navigateAdmin() {
-        return "adminNavigate";
+        return "navigationPages/adminNavigate";
     }
 
     @RequestMapping(value = "/navigate/supplier")
     public String navigateSupplier() {
-        return "supplierNavigate";
+        return "navigationPages/supplierNavigate";
     }
 
     @RequestMapping(value = "/navigate/consumer")
     public String navigateConsumer() {
-        return "consumerNavigate";
+        return "navigationPages/consumerNavigate";
     }
 }

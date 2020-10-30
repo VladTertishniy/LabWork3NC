@@ -48,16 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http
-//            .authorizeRequests()
-//            .anyRequest()
-//            .hasAnyAuthority("CONSUMER", "SUPPLIER")
-//                .and()
-//            .formLogin();
         http
+                .csrf()
+                .disable()
                 .authorizeRequests()
                 .antMatchers("/index.jsp")
-                .authenticated()
+                .permitAll()
                 .antMatchers("/navigate/admin")
                 .hasAnyAuthority("ADMIN")
                     .and()
@@ -67,12 +63,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .authorizeRequests()
                 .antMatchers("/navigate/consumer")
-                .hasAnyAuthority("CONSUMER", "ADMIN")
-                    .and()
-                .formLogin()
-                .permitAll()
-                    .and()
-                .logout()
+                .hasAnyAuthority("CONSUMER", "ADMIN");
+
+        http.formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/j_spring_security_check")
+                .failureUrl("/login?error")
+                .usernameParameter("j_username")
+                .passwordParameter("j_password")
                 .permitAll();
+
+        http.logout()
+                .permitAll()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true);
     }
 }
