@@ -38,8 +38,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/files/*.png")
+        registry.addResourceHandler("/files/*")
                 .addResourceLocations("/WEB-INF/files/");
-        registry.addResourceHandler("/pages/**").addResourceLocations("/WEB-INF/pages/");
+        registry.addResourceHandler("/pages/**")
+                .addResourceLocations("/WEB-INF/pages/");
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/static/js/");
     }
 }
