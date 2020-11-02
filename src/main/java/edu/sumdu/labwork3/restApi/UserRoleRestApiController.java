@@ -40,7 +40,7 @@ public class UserRoleRestApiController {
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public UserRole createUser(@RequestBody UserRole userRole) {
+    public UserRole createUserRole(@RequestBody UserRole userRole) {
         return userRoleService.insert(userRole);
     }
 

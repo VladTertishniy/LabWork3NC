@@ -22,7 +22,7 @@ public class RoleController {
     }
 
     @RequestMapping()
-    public ModelAndView showAllUsers() {
+    public ModelAndView showAllRoles() {
         List<Role> rolesList = roleService.getAll();
         return new ModelAndView("rolesPages/roles", "rolesList", rolesList);
     }
@@ -47,13 +47,13 @@ public class RoleController {
     }
 
     @GetMapping(value = "addRole")
-    public String addGoodsType(Model model) {
+    public String addRole(Model model) {
         model.addAttribute("command", new Role());
         return "rolesPages/addRole";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createGoodsType(@ModelAttribute("command") Role role) {
+    public String createRole(@ModelAttribute("command") Role role) {
         roleService.insert(role);
         return "redirect:/roles";
     }

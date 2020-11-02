@@ -46,7 +46,7 @@ public class ConsumerController {
     }
 
     @RequestMapping(value="/editConsumer/{user_id}", method = RequestMethod.GET)
-    public String editGoodsType(@PathVariable int user_id, Model model){
+    public String editConsumer(@PathVariable int user_id, Model model){
         Consumer consumer = consumerService.getById(user_id);
         model.addAttribute("command", consumer);
         return "consumersPages/editConsumer";

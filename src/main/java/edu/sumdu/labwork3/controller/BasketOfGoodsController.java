@@ -28,7 +28,7 @@ public class BasketOfGoodsController {
     }
 
     @GetMapping(value = "addBasketOfGoods")
-    public String addUser(Model model) {
+    public String addBasketOfGoods(Model model) {
         model.addAttribute("command", new BasketOfGoods());
         return "basketOfGoodsPages/addBasketOfGoods";
     }

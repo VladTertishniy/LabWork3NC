@@ -41,7 +41,6 @@ public class GoodsMapper implements RowMapper<Goods> {
         if(!isResultSetValid) {
             throw new IllegalArgumentException();
         }
-        // additional LOGGER.trace("The result set is valid !!! :) "); todo
         User user = new User();
         user.setUser_id(rs.getInt(USER_ID_ROW_NAME));
         user.setPassword(rs.getString(USER_PASSWORD_ROW_NAME));
@@ -57,7 +56,6 @@ public class GoodsMapper implements RowMapper<Goods> {
         goodsType.setId(rs.getInt(GOODS_TYPE_ID_ROW_NAME));
         int goodsTypeParenId = rs.getInt(GOODS_TYPE_PARENT_ID_ROW_NAME);
         goodsType.setParent_id(goodsTypeParenId != 0 ? goodsTypeParenId : null );
-        // additional LOGGER.info("Converting 0 -> null parentID data from ResultSet"); todo
         goodsType.setName(rs.getString(GOODS_TYPE_NAME_ROW_NAME));
         goodsType.setVendorCode(rs.getString(GOODS_VENDORCODE_ROW_NAME));
         Goods goods = new Goods();

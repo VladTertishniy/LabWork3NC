@@ -40,7 +40,6 @@ public class BasketOfGoodsMapper implements RowMapper<BasketOfGoods> {
         goodsType.setId(rs.getInt("goodsType_id"));
         int goodsTypeParenId = rs.getInt("goodsType_parent_id");
         goodsType.setParent_id(goodsTypeParenId != 0 ? goodsTypeParenId : null );
-        // additional LOGGER.info("Converting 0 -> null parentID data from ResultSet"); todo
         goodsType.setName(rs.getString("goodsType_name"));
         goodsType.setVendorCode(rs.getString("goodsType_vendorCode"));
         Goods goods = new Goods();

@@ -35,7 +35,7 @@ public class SupplierRestApiController {
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public Supplier createUser(@RequestBody Supplier supplier) {
+    public Supplier createSupplier(@RequestBody Supplier supplier) {
         return supplierService.insert(supplier);
     }
 

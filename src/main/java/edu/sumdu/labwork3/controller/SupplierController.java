@@ -46,7 +46,7 @@ public class SupplierController {
     }
 
     @RequestMapping(value="/editSupplier/{user_id}", method = RequestMethod.GET)
-    public String editGoodsType(@PathVariable int user_id, Model model){
+    public String editSupplier(@PathVariable int user_id, Model model){
         Supplier supplier = supplierService.getById(user_id);
         model.addAttribute("command", supplier);
         return "suppliersPages/editSupplier";

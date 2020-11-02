@@ -1,13 +1,7 @@
 package edu.sumdu.labwork3.controller;
 
 
-import edu.sumdu.labwork3.model.BasketOfGoods;
-import edu.sumdu.labwork3.model.Consumer;
 import edu.sumdu.labwork3.model.Order;
-import edu.sumdu.labwork3.model.Role;
-import edu.sumdu.labwork3.service.BasketOfGoodsService;
-import edu.sumdu.labwork3.service.ConsumerService;
-import edu.sumdu.labwork3.service.GoodsService;
 import edu.sumdu.labwork3.service.OrderService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -18,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -26,16 +19,10 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
-    private final ConsumerService consumerService;
-    private final GoodsService goodsService;
-    private final BasketOfGoodsService basketOfGoodsService;
     final static Logger logger = Logger.getLogger(OrderController.class);
 
-    public OrderController(OrderService orderService, ConsumerService consumerService, GoodsService goodsService, BasketOfGoodsService basketOfGoodsService) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.consumerService = consumerService;
-        this.goodsService = goodsService;
-        this.basketOfGoodsService = basketOfGoodsService;
     }
 
     @RequestMapping()

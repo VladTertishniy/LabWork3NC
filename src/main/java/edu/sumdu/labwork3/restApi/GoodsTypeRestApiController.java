@@ -45,7 +45,7 @@ public class GoodsTypeRestApiController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public void removeUser(@RequestBody GoodsType goodsType) {
+    public void removeGoodsType(@RequestBody GoodsType goodsType) {
         goodsTypeService.delete(goodsType.getId());
     }
 }

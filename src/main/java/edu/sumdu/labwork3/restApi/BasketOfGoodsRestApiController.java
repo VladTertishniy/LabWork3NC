@@ -40,19 +40,19 @@ public class BasketOfGoodsRestApiController {
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public BasketOfGoods createGoods(@RequestBody BasketOfGoods basketOfGoods) {
+    public BasketOfGoods createBasketOfGoods(@RequestBody BasketOfGoods basketOfGoods) {
         return basketOfGoodsService.insert(basketOfGoods);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public BasketOfGoods updateGoods(@RequestBody BasketOfGoods basketOfGoods) {
+    public BasketOfGoods updateBasketOfGoods(@RequestBody BasketOfGoods basketOfGoods) {
         return basketOfGoodsService.update(basketOfGoods);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public void removeUser(@RequestBody BasketOfGoods basketOfGoods) {
+    public void removeBasketOfGoods(@RequestBody BasketOfGoods basketOfGoods) {
         basketOfGoodsService.delete(basketOfGoods);
     }
 }

@@ -28,13 +28,13 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createGoodsType(@ModelAttribute("command") Goods goods) {
+    public String createGoods(@ModelAttribute("command") Goods goods) {
         goodsService.insert(goods);
         return "redirect:/goods";
     }
 
     @GetMapping(value = "addGoods")
-    public String addGoodsType(Model model) {
+    public String addGoods(Model model) {
         model.addAttribute("command", new Goods());
         return "goodsPages/addGoods";
     }
@@ -46,7 +46,7 @@ public class GoodsController {
     }
 
     @RequestMapping(value="/editGoods/{id}", method = RequestMethod.GET)
-    public String editGoodsType(@PathVariable int id, Model model){
+    public String editGoods(@PathVariable int id, Model model){
         Goods goods = goodsService.getById(id);
         model.addAttribute("command", goods);
         return "goodsPages/editGoods";

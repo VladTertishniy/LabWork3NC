@@ -34,7 +34,7 @@ public class ConsumerRestApiController {
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.OK)
-    public Consumer createUser(@RequestBody Consumer consumer) {
+    public Consumer createConsumer(@RequestBody Consumer consumer) {
         return consumerService.insert(consumer);
     }
 
