@@ -2,7 +2,7 @@ jQuery.validator.addMethod("notEqual", function (value, element, param) {
     return this.optional(element) || value != '0';
 });
 $(document).ready(function () {
-    $("#consumerForm").validate({
+    $("#supplierForm").validate({
         rules: {
             "user.user_id": {
                 required: true,
@@ -25,7 +25,7 @@ $(document).ready(function () {
                 minlength: 5,
                 maxlength: 50
             },
-            counterpartyType: {
+            organization: {
                 required: true,
                 minlength: 5,
                 maxlength: 50
