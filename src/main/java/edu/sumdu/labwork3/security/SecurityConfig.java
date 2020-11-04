@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/index.jsp")
                 .permitAll()
-                .antMatchers("/navigate/admin")
+                .antMatchers("/navigate/admin", "/roles", "/users", "/userRoles", "/consumers", "/suppliers")
                 .hasAnyAuthority("ADMIN")
                     .and()
                 .authorizeRequests()

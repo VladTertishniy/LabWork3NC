@@ -13,11 +13,11 @@ text-align:  center;
 <div class="text">
 <font size="10" color="black" face="algerian">
 <h1>Consumer page</h1></br>
-<a href="/goodsType">Show goods types</a></br>
-<a href="/goods">Show goods</a></br>
-<a href="/orders">Show orders</a></br>
-<a href="/orders/addOrder">New order</a></br>
-<a href="/basketOfGoods/addBasketOfGoods">Add baskets of goods</a></br>
+    <a href="/goodsType">Show goods types</a></br>
+    <a href="/goods">Show goods</a></br>
+    <a href="/orders">Show orders</a></br>
+    <a href="/orders/addOrder">New order</a></br>
+    <a href="/basketOfGoods/addBasketOfGoods">Add baskets of goods</a></br>
 </font>
 </div>
 </body>

@@ -15,7 +15,6 @@ text-align:  center;
 <h1>Supplier page</h1></br>
 <a href="/goodsType">Show goods types</a></br>
 <a href="/goods">Show goods</a></br>
-<a href="/suppliers">Show suppliers</a></br>
 <a href="/orders/addOrder">New order</a></br>
 <a href="/basketOfGoods/addBasketOfGoods">Add baskets of goods</a></br>
 </font>
