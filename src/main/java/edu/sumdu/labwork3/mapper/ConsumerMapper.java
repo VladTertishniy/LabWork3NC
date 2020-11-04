@@ -41,6 +41,7 @@ public class ConsumerMapper implements RowMapper<Consumer> {
         consumer.setCounterpartyType(rs.getString(COUNTERPARTYTYPE_ROW_NAME));
         consumer.setPhoneNumber(rs.getString(PHONE_NUMBER_ROW_NAME));
         consumer.setUser(user);
+        logger.info("Successfully converting resultSet to user: " + user.toString());
         return consumer;
     }
 

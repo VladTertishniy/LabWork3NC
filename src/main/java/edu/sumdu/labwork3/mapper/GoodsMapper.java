@@ -64,6 +64,7 @@ public class GoodsMapper implements RowMapper<Goods> {
         goods.setId(rs.getInt(GOODS_ID_ROW_NAME));
         goods.setName(rs.getString(GOODS_NAME_ROW_NAME));
         goods.setSupplier(supplier);
+        logger.info("Successfully converting resultSet to supplier: " + supplier.toString());
         return goods;
     }
 

@@ -50,6 +50,7 @@ public class OrderMapper implements RowMapper<Order> {
         order.setId(rs.getInt(ORDER_ID_ROW_NAME));
         order.setNumber(rs.getInt(ORDER_NUMBER_ROW_NAME));
         order.setOrderDate(rs.getTimestamp(ORDER_DATE_ROW_NAME).toLocalDateTime());
+        logger.info("Successfully converting resultSet to order: " + order.toString());
         return order;
     }
 

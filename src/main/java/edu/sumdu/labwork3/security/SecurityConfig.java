@@ -21,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @ComponentScan("edu.sumdu.labwork3")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    final static Logger logger = Logger.getLogger(SecurityConfig.class);
     private final UserDetailsServiceImpl userDetailsService;
 
     public SecurityConfig(UserDetailsServiceImpl userDetailsService) {

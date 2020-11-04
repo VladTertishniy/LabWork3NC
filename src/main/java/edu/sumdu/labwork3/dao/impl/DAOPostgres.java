@@ -1,9 +1,11 @@
 package edu.sumdu.labwork3.dao.impl;
 
+import edu.sumdu.labwork3.controller.BasketOfGoodsController;
 import edu.sumdu.labwork3.dao.DAO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -16,6 +18,7 @@ import java.sql.SQLException;
 @Repository
 public class DAOPostgres extends DAO {
 
+    final static Logger logger = Logger.getLogger(BasketOfGoodsController.class);
     private final DataSource dataSource;
 
     @Override
@@ -23,10 +26,10 @@ public class DAOPostgres extends DAO {
         try {
             connection = dataSource.getConnection();
             if (!connection.isClosed()) {
-                System.out.println("Connected!");
+                logger.info("Connection Successful!");
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.warn(e.getMessage());
         }
         return connection;
     }
@@ -41,9 +44,9 @@ public class DAOPostgres extends DAO {
             if (statement != null) {
                 statement.close();
             }
-            System.out.println("Disconnected!");
+            logger.info("Connection was closed!");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            logger.warn(e.getMessage());
         }
     }
 }

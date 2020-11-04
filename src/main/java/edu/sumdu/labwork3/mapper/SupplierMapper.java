@@ -41,6 +41,7 @@ public class SupplierMapper implements RowMapper<Supplier> {
         supplier.setOrganization(rs.getString(ORGANIZATION_ROW_NAME));
         supplier.setPhoneNumber(rs.getString(PHONE_NUMBER_ROW_NAME));
         supplier.setUser(user);
+        logger.info("Successfully converting resultSet to supplier: " + supplier.toString());
         return supplier;
     }
 

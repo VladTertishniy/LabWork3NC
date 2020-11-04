@@ -34,6 +34,7 @@ public class GoodsTypeMapper implements RowMapper<GoodsType> {
         int parentID = rs.getInt(PARENT_ID_ROW_NAME);
         goodsType.setParent_id(parentID != 0 ? parentID : null);
         goodsType.setId(rs.getInt(GOODS_TYPE_ID_ROW_NAME));
+        logger.info("Successfully converting resultSet to goodsType: " + goodsType.toString());
         return goodsType;
     }
 

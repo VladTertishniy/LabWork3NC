@@ -53,6 +53,7 @@ public class BasketOfGoodsMapper implements RowMapper<BasketOfGoods> {
         basketOfGoods.setGoods(goods);
         basketOfGoods.setCount(rs.getInt("count"));
         basketOfGoods.setSum(rs.getFloat("sum"));
+        logger.info("Successfully converting resultSet to basketOfGoods: " + basketOfGoods.toString());
         return basketOfGoods;
     }
 }
