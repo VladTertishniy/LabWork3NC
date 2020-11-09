@@ -27,8 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        configurer.favorPathExtension(true).
-                favorParameter(false).
+        configurer.favorParameter(false).
                 parameterName("mediaType").
                 ignoreAcceptHeader(true).
                 defaultContentType(MediaType.APPLICATION_JSON).

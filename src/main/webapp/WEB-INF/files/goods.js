@@ -6,7 +6,6 @@ $(document).ready(function () {
         rules: {
             price: {
                 required: true,
-                digits: true,
                 notEqual: '0'
             },
             "goodsType.id": {
